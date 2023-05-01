@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Stroy Pluse",
+    "version": "1",
+    "description": "엔트리 이야기를 편리하게 해주는 확장프로그램입니다.",
+    "icons": {
+      "48": "logo.png"
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://playentry.org/community/entrystory/list?sort=created&term=all"
+        ],
+        "js": [
+          "content_script.js"
+        ]
+      }
+    ]
+}
