@@ -56,22 +56,21 @@ function view() {
           links[i].setAttribute('data-iframe-loaded', 'true');
         }
       }
-    }
-    if (links[i].href.startsWith("https://www.youtube.com/watch?v=")) {
+    } else if (links[i].href.startsWith("https://www.youtube.com/watch?v=")) {
       if (links[i].getAttribute('data-iframe-loaded2') === null) {
         links[i].textContent = "들어가기";
         links[i].innerHTML += '<br><iframe width="640" height="420" src="' + links[i].href.replace("watch?v=", "embed/") + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>'
         links[i].setAttribute('data-iframe-loaded2', 'true');
       }
-    }
-    if (links[i].textContent.startsWith("https://playentry.org/uploads/")) {
+    } else if (links[i].textContent.startsWith("https://playentry.org/uploads/")) {
       if (links[i].getAttribute('data-iframe-loaded3') === null) {
         links[i].textContent = '';
         links[i].innerHTML += '<br><img src="' + links[i].href + '"></img><br>'
         links[i].setAttribute('data-iframe-loaded3', 'true');
       }
+    } else {
+      links[i].href = links[i].textContent;
     }
-    links[i].href = links[i].textContent;
   }
 }
 
