@@ -45,7 +45,6 @@ setInterval(function() {
 function view() {
   const links = document.getElementsByTagName("a");
   for (let i = 0; i < links.length; i++) {
-    links[i].href = links[i].textContent;
     if (links[i].href.startsWith("https://playentry.org/project/")) {
       if (links[i].getAttribute('data-iframe-loaded') === null) {
         if (!links[i].href.startsWith("https://playentry.org/project/list/")) {
@@ -72,6 +71,7 @@ function view() {
         links[i].setAttribute('data-iframe-loaded3', 'true');
       }
     }
+    links[i].href = links[i].textContent;
   }
 }
 
